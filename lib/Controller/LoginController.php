@@ -493,6 +493,8 @@ class LoginController extends BaseOidcController {
 		$idTokenPayload = JWT::decode($idTokenRaw, $jwks);
 
 		$this->logger->debug('Parsed the JWT payload: ' . json_encode($idTokenPayload, JSON_THROW_ON_ERROR));
+		error_log('cccccccccccccccccccccccccccc ' . json_encode($idTokenPayload, JSON_THROW_ON_ERROR));
+		error_log('cccccccccccccccccccccccccccc 22222 ' . json_encode($data, JSON_THROW_ON_ERROR));
 
 		if ($idTokenPayload->exp < $this->timeFactory->getTime()) {
 			$this->logger->debug('Token expired');
